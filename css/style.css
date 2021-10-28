@@ -62,7 +62,7 @@ hr {
   justify-content: space-around;
   position: absolute;
   left: 0px;
-  top: 13vh;
+  top: 10vh;
   width: 100%;
   background-color: var(--lightBackGr);
 }
