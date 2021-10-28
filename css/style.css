@@ -105,7 +105,14 @@ footer h1 {
 }
 
 .logo {
-  max-height: 10vh;
+  max-height: 7vh;
+}
+
+.container {
+  height: 15rem;
+  background-image: url("images/background1.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media screen and (min-width: 950px) {
