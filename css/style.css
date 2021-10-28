@@ -36,7 +36,7 @@ a {
 #bag-icon,
 .mobile-menue {
   color: var(--main);
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 #bag-icon:hover {
@@ -46,7 +46,7 @@ a {
 
 hr {
   width: 80%;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 
 /* Navigation */
