@@ -65,9 +65,16 @@ hr {
   position: absolute;
   left: 0px;
   top: 6.2rem;
-  width: 100%;
+  width: 0%;
   background-color: var(--lightBackGr);
   z-index: 1;
+  animation: menue 0.5s forwards;
+}
+
+@keyframes menue {
+  100% {
+    width: 100%;
+  }
 }
 
 .nav-link {
