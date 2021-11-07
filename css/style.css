@@ -289,5 +289,6 @@ footer h1 {
 
   .box3 {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
