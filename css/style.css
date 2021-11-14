@@ -206,7 +206,7 @@ footer h1 {
 }
 
 .box2-container {
-  margin: 30px;
+  margin: 30px auto;
   display: flex;
   justify-content: center;
   align-items: center;
