@@ -3,8 +3,8 @@
 import { jacketList } from "./jacket-list.js";
 const products = document.querySelector('.products-list');
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+const urlString = window.location.search;
+const urlParams = new URLSearchParams(urlString);
 const gen = urlParams.get('gender');
 console.log(gen);
 
@@ -14,16 +14,16 @@ if(gen==="male"){
     products.innerHTML +=
     `
     <div class="product-container">
-              <div class="image-container">
+             <a href="jacket.html"><div class="image-container">
                 <img
                   class="product-image"
                   src="${jacket.jacketImg}"
                   alt="jacket nr. 3"
                 />
-              </div>
+              </div></a>
               <div class="product-footer">
                 <p class="product-name">${jacket.name} - ${jacket.gender}</p>
-                <p class="product-price">${jacket.price} NOK</p>
+                <p class="product-price">Price: ${jacket.price} NOK</p>
                 <p class="product-add-bag">Add To Bag</p>
               </div>
       </div>
@@ -37,16 +37,16 @@ else if(gen==="female"){
     products.innerHTML +=
     `
     <div class="product-container">
-              <div class="image-container">
+              <a href="jacket.html"><div class="image-container">
                 <img
                   class="product-image"
                   src="${jacket.jacketImg}"
                   alt="jacket nr. 3"
                 />
-              </div>
+              </div></a>
               <div class="product-footer">
                 <p class="product-name">${jacket.name} - ${jacket.gender}</p>
-                <p class="product-price">${jacket.price} NOK</p>
+                <p class="product-price">Price: ${jacket.price} NOK</p>
                 <p class="product-add-bag">Add To Bag</p>
               </div>
       </div>
@@ -61,16 +61,16 @@ jacketList.forEach(jacket => {
   products.innerHTML +=
   `
   <div class="product-container">
-            <div class="image-container">
+            <a href="jacket.html"><div class="image-container">
               <img
                 class="product-image"
                 src="${jacket.jacketImg}"
                 alt="jacket nr. 3"
               />
-            </div>
+            </div></a>
             <div class="product-footer">
               <p class="product-name">${jacket.name} - ${jacket.gender}</p>
-              <p class="product-price">${jacket.price} NOK</p>
+              <p class="product-price">Price: ${jacket.price} NOK</p>
               <p class="product-add-bag">Add To Bag</p>
             </div>
     </div>

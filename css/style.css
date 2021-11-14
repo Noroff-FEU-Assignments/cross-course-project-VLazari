@@ -467,6 +467,32 @@ label {
 
 /* <---Contact us page */
 
+.jacket-image {
+  height: 50vh;
+}
+
+.jacket-container {
+  padding: 10px;
+  background-color: var(--lightBackGr);
+  text-align: center;
+  border-radius: 20px;
+}
+
+.jacket-name {
+  padding: 5px;
+  font-size: 3rem;
+  color: var(--main);
+}
+.jacket-img-small {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jacket-small {
+  width: 20%;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 950px) {
   .navigation {
     display: flex;
