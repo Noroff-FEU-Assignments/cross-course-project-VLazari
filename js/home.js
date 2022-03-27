@@ -24,5 +24,6 @@ cartButtons.forEach((button) => {
 		jacketCart.push(jacket);
 		localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
 		nrOfItems();
+		alert("Jacket added to cart");
 	});
 });

@@ -52,6 +52,7 @@ cartButtons.forEach((button) => {
 		nrOfItems();
 		deleteButtons = document.querySelectorAll(".remove-item");
 		delItem();
+		alert("Jacket added to cart");
 	});
 });
 
