@@ -10,6 +10,7 @@ const cart = document.querySelector(".cart-items");
 const totalPrice = document.querySelector(".product-price");
 const emptyCart = document.querySelector(".header-text");
 const clearCart = document.querySelector(".remove-items");
+const allCart = document.querySelector(".cart-jacket");
 let jacketCart = [];
 let priceInCart = 0;
 
@@ -25,34 +26,45 @@ if (localStorage.getItem("Cart Items")) {
 } else {
 	emptyCart.innerHTML = `Cart is empty`;
 	cart.innerHTML = "";
+	allCart.style.display = "none";
 }
 
 // --- Remove items from cart --->
 
+console.log(allCart);
 clearCart.onclick = function () {
 	localStorage.clear();
 	location.reload();
 };
 
-const clearItem = document.querySelectorAll(".remove-item");
+let clearItem = document.querySelectorAll(".remove-item");
 
-clearItem.forEach((button, id) => {
-	button.addEventListener("click", function () {
-		jacketCart.splice(id, 1);
-		localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
-		if (localStorage.getItem("Cart Items")) {
-			cart.innerHTML = "";
-			priceInCart = 0;
-			jacketCart.forEach((element) => {
-				priceInCart += element.price;
-				cartCheckout(cart, element);
-			});
-		}
-		nrOfItems();
-		location.reload();
+function delItem() {
+	clearItem.forEach((button, id) => {
+		button.addEventListener("click", function () {
+			jacketCart.splice(id, 1);
+			localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
+			if (localStorage.getItem("Cart Items")) {
+				cart.innerHTML = "";
+				priceInCart = 0;
+				if (jacketCart.length === 0) {
+					allCart.style.display = "none";
+					// emptyCart.innerHTML = `Cart is empty`;
+					// totalPrice.innerHTML = `Total price: 0 NOK`;
+				}
+				jacketCart.forEach((element) => {
+					priceInCart += element.price;
+					cartCheckout(cart, element);
+					totalPrice.innerHTML = `Total price: ${priceInCart} NOK`;
+				});
+			}
+			clearItem = document.querySelectorAll(".remove-item");
+			nrOfItems();
+			delItem();
+		});
 	});
-});
-
+}
+delItem();
 // --- Check size and checkout --->
 
 const checkoutAll = document.querySelector("#checkout-btn");

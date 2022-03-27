@@ -38,6 +38,8 @@ if (localStorage.getItem("Cart Items")) {
 	nrOfItems();
 }
 
+let deleteButtons = document.querySelectorAll(".remove-item");
+
 cartButtons.forEach((button) => {
 	button.addEventListener("click", function () {
 		const jacketId = parseInt(button.dataset.jacketId);
@@ -48,29 +50,33 @@ cartButtons.forEach((button) => {
 		emptyCart.innerHTML = `Your cart:`;
 		localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
 		nrOfItems();
-		location.reload();
+		deleteButtons = document.querySelectorAll(".remove-item");
+		delItem();
 	});
 });
 
 // --- Remove jacket from cart --->
 
-const deleteButtons = document.querySelectorAll(".remove-item");
-
-deleteButtons.forEach((button, id) => {
-	button.addEventListener("click", function () {
-		console.log("click");
-
-		jacketCart.splice(id, 1);
-		localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
-		if (localStorage.getItem("Cart Items")) {
+function delItem() {
+	deleteButtons.forEach((button, id) => {
+		button.addEventListener("click", function () {
+			jacketCart.splice(id, 1);
+			localStorage.setItem("Cart Items", JSON.stringify(jacketCart));
 			cart.innerHTML = "";
 			priceInCart = 0;
+			if (jacketCart.length === 0) {
+				emptyCart.innerHTML = `Cart is empty`;
+				totalPrice.innerHTML = `Total: 0 NOK`;
+			}
 			jacketCart.forEach((element) => {
 				priceInCart += element.price;
+				console.log(priceInCart);
 				cartDisplay(cart, element, totalPrice, priceInCart);
 			});
-		}
-		nrOfItems();
-		location.reload();
+			deleteButtons = document.querySelectorAll(".remove-item");
+			nrOfItems();
+			delItem();
+		});
 	});
-});
+}
+delItem();
