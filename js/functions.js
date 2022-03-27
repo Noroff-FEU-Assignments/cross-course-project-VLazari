@@ -77,3 +77,23 @@ export function nrOfItems() {
 		nrOfItemsInCart.innerHTML = `${JSON.parse(localStorage.getItem("Cart Items")).length}`;
 	}
 }
+
+// --- Form validation functions --->
+
+export function checkLength(value, len) {
+	if (value.trim().length > len) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+export function formValidation(validateField, error) {
+	if (checkLength(validateField.value, 0) === true) {
+		error.style.display = "none";
+		return true;
+	} else {
+		error.style.display = "block";
+		return false;
+	}
+}
