@@ -552,7 +552,7 @@ footer h1 {
 
 /* Contact us page ---> */
 
-.contuct-main {
+.contact-main {
 	background-color: var(--lightBackGr);
 }
 
@@ -582,6 +582,17 @@ footer h1 {
 	color: var(--main);
 }
 
+.form-error {
+	color: #bb0000;
+	font-size: 0.8rem;
+}
+
+#name-error,
+#subject-error,
+#message-error {
+	display: none;
+}
+
 legend {
 	text-align: center;
 }
@@ -602,6 +613,7 @@ label {
 	font-size: 1rem;
 	font-family: var(--fontMain);
 }
+
 .form-text {
 	height: 150px;
 }

@@ -1,29 +1,49 @@
 const form = document.querySelector("form");
 const messageSend = document.querySelector(".form-submit");
+const userName = document.querySelector("#name");
+const userNameError = document.querySelector("#name-error");
+const subject = document.querySelector("#subject");
+const subjectError = document.querySelector("#subject-error");
+const message = document.querySelector("#message");
+const messageError = document.querySelector("#message-error");
 
 form.addEventListener("submit", function (event) {
 	event.preventDefault();
-	messageSend.style.display = "block";
-	window.scrollTo(0, 0);
-	form.reset();
+	formValidation();
+	if (formValidation()) {
+		messageSend.style.display = "block";
+		window.scrollTo(0, 0);
+		form.reset();
+	}
 });
 
-// async function onSignup(event) {
-// 	event.preventDefault();
+function checkLength(value, len) {
+	if (value.trim().length > len) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-// 	const form = event.target;
-// 	const email = form.email.value;
-// 	const isValid = form.valid;
-// 	const apiUrl = form.action;
-// 	const method = form.method;
-// 	const body = new FormData(form);
-
-// 	console.log(email, isValid, apiUrl, method);
-
-// 	const response = await fetch(apiUrl, {
-// 		method,
-// 		body,
-// 	});
-
-// 	const data = await response.json();
-// }
+function formValidation() {
+	if (checkLength(userName.value, 0) === true) {
+		userNameError.style.display = "none";
+	} else {
+		userNameError.style.display = "block";
+	}
+	if (checkLength(subject.value, 0) === true) {
+		subjectError.style.display = "none";
+	} else {
+		subjectError.style.display = "block";
+	}
+	if (checkLength(message.value, 0) === true) {
+		messageError.style.display = "none";
+	} else {
+		messageError.style.display = "block";
+	}
+	if (checkLength(userName.value, 0) && checkLength(subject.value, 0) && checkLength(message.value, 0) === true) {
+		return true;
+	} else {
+		return false;
+	}
+}
